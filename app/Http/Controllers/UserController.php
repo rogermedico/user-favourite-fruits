@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\FruitService;
 
 class UserController extends Controller
 {
     public function index(FruitService $fruitService)
     {
-        $userFavouriteFruits = (new FruitService)->userFavouriteFruits();
+        // incorrect
+        $fruitService = new FruitService();
+        $userFavouriteFruits = $fruitService->userFavouriteFruits();
+
+        // correct
+        // $userFavouriteFruits = $fruitService->userFavouriteFruits();
+
+        // correct
+        // $userFavouriteFruits = app(FruitService::class)->userFavouriteFruits();
 
         return view(
             'user_favourite_fruits', 
