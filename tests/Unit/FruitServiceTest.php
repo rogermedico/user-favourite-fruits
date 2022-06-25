@@ -11,7 +11,7 @@ class FruitServiceTest extends TestCase
 {
     public function testUserFavouriteFruitsReturnCorrectValues()
     {
-        $fruitService = new FruitService;
+        $fruitService = new FruitService();
 
         $this->assertEquals(
             [
@@ -22,6 +22,8 @@ class FruitServiceTest extends TestCase
                 'charlie' => '🍍'
             ], 
             $fruitService->userFavouriteFruits()
-    );
+        );
     }
+
+    //...
 }
